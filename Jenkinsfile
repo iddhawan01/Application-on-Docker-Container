@@ -6,8 +6,8 @@ pipeline {
         stage('STAGE 1 --> Clone Public Repo') {
             steps {
                 echo "📥 Cloning public repo..."
-                git branch: 'main', url: 'https://github.com/YOUR_USERNAME/public-docker-deploy.git'
-                echo " STAGE 1 succesful "
+                git branch: 'main', url: 'https://github.com/iddhawan01/Application-on-Docker-Container.git'
+                echo " STAGE 1 succesfull "
             }
         }
 
@@ -16,7 +16,7 @@ pipeline {
                 sh '''
                     echo "🐳 Building Docker image..."
                     docker build -t public-nginx-app .
-                    echo " STAGE 2 succesful "
+                    echo " STAGE 2 succesfull "
                 '''
             }
         }
@@ -29,7 +29,7 @@ pipeline {
 
                     echo "🚀 Starting new container..."
                     docker run -d -p 8081:80 --name public-nginx-container public-nginx-app
-                    echo " STAGE 3 succesful "
+                    echo " STAGE 3 succesfull "
                 '''
             }
         }
@@ -37,7 +37,7 @@ pipeline {
 
     post {
         success {
-            echo "🎉 Container deployed successfully! Visit: http://<YOUR_EC2_PUBLIC_IP>:8081"
+            echo "🎉 Container deployed successfully! Visit: http://13.235.33.103:8081"
         }
         failure {
             echo "❌ Deployment failed — check logs"
