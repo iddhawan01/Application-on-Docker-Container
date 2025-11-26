@@ -18,7 +18,7 @@ pipeline {
 
         stage('STAGE 2 --> SonarCloud Code Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube Testing') {
+                withSonarQubeEnv('SonarQubeTesting') {
                     sh '''
                         echo "🔍 Running SonarCloud analysis..."
 
